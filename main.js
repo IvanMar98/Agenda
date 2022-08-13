@@ -8,12 +8,14 @@ const signo = document.querySelector('.signo');
 const direccion = document.querySelector('.direccion');
 
 
-const btnDelete = document.querySelector('.eliminar');
+/* const btnDelete = document.querySelector('.eliminar');
+const btnConsultar = document.querySelector('.consultar') */
 
 const btnAgregar = document.querySelector('.btn-agregar');
 btnAgregar.addEventListener("click", capturar);
 
 const listado = document.querySelector('.listado');
+const contactoDetalles = document.querySelector('.showContact')
 
 const db = window.localStorage;
 

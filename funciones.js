@@ -16,7 +16,7 @@ function capturar() {
 
 function guardarContacto(db, contacto, parentNode) {
     db.setItem(contacto.id, JSON.stringify(contacto));
-    window.location.href = '/index.html';
+    window.location.href='/index.html'
 }
 
 function mostratContacto(db, parentNode) {
@@ -36,9 +36,11 @@ function crearContacto(parentNode, contacto, db) {
     let emailContacto = document.createElement('p');
     let cumpleañosContacto = document.createElement('p');
     let signoContacto = document.createElement('p');
-    let direccionContacto = document.createElement('p');
+    let direccionContacto = document.createElement('p'); 
+    let btnConsultar = document.createElement('button');
     let btnDelete = document.createElement('button');
     let btnEdit = document.createElement('button');
+    let btnCancelar = document.createElement('button')
 
     nombreContacto.textContent = contacto.nombre;
     apellidoContacto.textContent = contacto.apellido;
@@ -48,24 +50,13 @@ function crearContacto(parentNode, contacto, db) {
     cumpleañosContacto.textContent = contacto.cumpleaños;
     signoContacto.textContent = contacto.signo;
     direccionContacto.textContent = contacto.direccion;
-    btnEdit.textContent = 'edit';
-    btnDelete.textContent = 'delete';
-
-    /*  divcontacto.classList.add('contacto');
-     btnEdit.classList.add('edit');
-     btnDelete.classList.add('delete'); */
+    btnConsultar.textContent = 'consultar';
+    
 
     divcontacto.appendChild(nombreContacto);
     divcontacto.appendChild(apellidoContacto);
-    divcontacto.appendChild(apodoContacto);
-    divcontacto.appendChild(numeroContacto);
-    divcontacto.appendChild(emailContacto);
-    divcontacto.appendChild(cumpleañosContacto);
-    divcontacto.appendChild(signoContacto);
-    divcontacto.appendChild(direccionContacto);
-    divcontacto.appendChild(btnEdit);
-    divcontacto.appendChild(btnDelete);
-
+    divcontacto.appendChild(btnConsultar);
+    
     parentNode.appendChild(divcontacto);
 
     btnDelete.onclick = () => {
@@ -83,6 +74,7 @@ function crearContacto(parentNode, contacto, db) {
 
     btnEdit.onclick = () => {
 
+        btnDelete.disabled = true;
         console.log('editando. . .')
         const nombreEdit = document.querySelector('.nombre').value = contacto.nombre;
         const apellidoEdit = document.querySelector('.apellido').value = contacto.apellido;
@@ -93,8 +85,52 @@ function crearContacto(parentNode, contacto, db) {
         const signoEdit = document.querySelector('.signo').value = contacto.signo;
         const direccionEdit = document.querySelector('.direccion').value = contacto.direccion;
         db.removeItem(contacto.id);
+    }
+
+    btnConsultar.onclick = ()=>{
+        console.log('consultadno')
+        let consulta =document.createElement('div')
+        let nombreContactoConsul = document.createElement('p');
+        let apellidoContactoConsul = document.createElement('p');
+        let apodoContactoConsul = document.createElement('p');
+        let numeroContactoConsul = document.createElement('p');
+        let emailContactoConsul = document.createElement('p');
+        let cumpleañosContactoConsul = document.createElement('p');
+        let signoContactoConsul = document.createElement('p');
+        let direccionContactoConsul = document.createElement('p');
+       
+        nombreContactoConsul.textContent = `Nombre: ${contacto.nombre}`;
+        apellidoContactoConsul.textContent = `Apellido: ${contacto.apellido}`;
+        apodoContactoConsul.textContent = `Apodo: ${contacto.apodo}`;
+        numeroContactoConsul.textContent = `Numero: ${contacto.numero}`;
+        emailContactoConsul.textContent = `Email: ${contacto.email}`;
+        cumpleañosContactoConsul.textContent = `Cumpleaños: ${contacto.cumpleaños}`;
+        signoContactoConsul.textContent = `Signo: ${contacto.signo}`;
+        direccionContactoConsul.textContent = `Direccion: ${contacto.direccion}`;
+        btnEdit.textContent = 'edit';
+        btnDelete.textContent = 'delete';
+        btnCancelar.textContent = 'cancelar';
 
 
+
+        consulta.appendChild(nombreContactoConsul);
+        consulta.appendChild(apellidoContactoConsul);
+        consulta.appendChild(apodoContactoConsul);
+        consulta.appendChild(numeroContactoConsul);
+        consulta.appendChild(emailContactoConsul);
+        consulta.appendChild(cumpleañosContactoConsul);
+        consulta.appendChild(signoContactoConsul);
+        consulta.appendChild(direccionContactoConsul);
+        consulta.appendChild(btnEdit);
+        consulta.appendChild(btnDelete);
+        consulta.appendChild(btnCancelar);
+
+        contactoDetalles.appendChild(consulta);
+    }
+
+    btnCancelar.onclick = ()=>{
+        db.setItem(contacto.id, JSON.stringify(contacto));
+        window.location.href = '/index.html'
     }
 
 }
