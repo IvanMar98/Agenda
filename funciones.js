@@ -29,6 +29,7 @@ function mostratContacto(db, parentNode) {
 
 function crearContacto(parentNode, contacto, db) {
     let divcontacto = document.createElement('div');
+    let icono = document.createElement('div')
     let nombreContacto = document.createElement('p');
     let apellidoContacto = document.createElement('p');
     let apodoContacto = document.createElement('p');
@@ -42,17 +43,12 @@ function crearContacto(parentNode, contacto, db) {
     let btnEdit = document.createElement('button');
     let btnCancelar = document.createElement('button')
 
+    icono.textContent = iconoLetters(contacto);
     nombreContacto.textContent = contacto.nombre;
     apellidoContacto.textContent = contacto.apellido;
-    apodoContacto.textContent = contacto.apodo;
-    numeroContacto.textContent = contacto.numero;
-    emailContacto.textContent = contacto.email;
-    cumpleañosContacto.textContent = contacto.cumpleaños;
-    signoContacto.textContent = contacto.signo;
-    direccionContacto.textContent = contacto.direccion;
     btnConsultar.textContent = 'consultar';
     
-
+    divcontacto.appendChild(icono);
     divcontacto.appendChild(nombreContacto);
     divcontacto.appendChild(apellidoContacto);
     divcontacto.appendChild(btnConsultar);
@@ -133,6 +129,11 @@ function crearContacto(parentNode, contacto, db) {
         window.location.href = '/index.html'
     }
 
+}
+function iconoLetters(contacto){
+    const lettername = contacto.nombre.substr(0,1);
+    const letterlastname = contacto.apellido.substr(0,1);
+    return lettername + letterlastname;
 }
 
 

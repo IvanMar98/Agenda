@@ -9,7 +9,7 @@ html{
 }
 
 body{
-    background-color: rgb(30, 144, 255, .8);
+    background-color: rgb(30, 144, 255, .5);
     color: rgba(200,200,200,.9);
 
 }
@@ -58,7 +58,7 @@ body{
 }
 .formulario button{
     margin: 1rem 0rem;
-    background-color: dodgerblue;
+    background-color: rgb(30, 144, 255, .5);
     border: 0;
     outline: 0;
     height: 3rem;
@@ -87,11 +87,11 @@ body{
 
 .listado button{
     margin: 1rem 0rem;
-    background-color: dodgerblue;
+    background-color: rgb(30, 144, 255, .5);
     border: 0;
     outline: 0;
     height: 3rem;
-    width: 6rem;
+    width: 8rem;
     border-radius: 5px;
     text-transform: uppercase;
     color: white;
@@ -112,7 +112,7 @@ body{
 }
 .showContact button{
     margin: 1rem 0rem;
-    background-color: dodgerblue;
+    background-color: rgb(30, 144, 255, .5);
     border: 0;
     outline: 0;
     height: 3rem;
@@ -120,4 +120,14 @@ body{
     border-radius: 5px;
     text-transform: uppercase;
     color: white;
+}
+.listado>div > div{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(30, 144, 255, .5);
 }
