@@ -71,6 +71,7 @@ function crearContacto(parentNode, contacto, db) {
     btnEdit.onclick = () => {
 
         btnDelete.disabled = true;
+        btnConsultar.disabled =true;
         console.log('editando. . .')
         const nombreEdit = document.querySelector('.nombre').value = contacto.nombre;
         const apellidoEdit = document.querySelector('.apellido').value = contacto.apellido;
